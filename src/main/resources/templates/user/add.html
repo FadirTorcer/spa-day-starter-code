@@ -6,19 +6,25 @@
 </head>
 <body>
 
-    <form method = 'post' action="/user">
+    <form method = 'post' th:action="@{/user}">
         <label>User Name:
-            <input type="text" name="userName">
+            <input type="text" name="username" th:value="${username}">
         </label><br /><br />
+
         <label>E-mail:
-            <input type="email" name="email">
+            <input type="email" name="email" th:value="${email}">
         </label><br /><br />
+
         <label>Password:
             <input type="password" name="password">
         </label><br /><br />
+
         <label>Re-type your password:
             <input type="password" name="verify">
         </label><br /><br />
+
+        <p th:text="${error}"></p>
+
         <input type = 'submit' value = 'Submit'>
     </form>
 

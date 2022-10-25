@@ -12,22 +12,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("user")
 public class UserController {
 
-    @GetMapping("add")
+    @GetMapping("/add")
     public String displayAddUserForm() {
         return "user/add";
     }
 
-    @PostMapping("add")
+    @PostMapping
     public String processAddUserForm(Model model, @ModelAttribute User user, String verify) {
         model.addAttribute("user", user);
         model.addAttribute("username", user.getUsername());
         model.addAttribute("email", user.getEmail());
-        model.addAttribute("password", user.getPassword());
         model.addAttribute("verify", verify);
-        if (user.getPassword() == verify) {
-            return "redirect:/user";
+        if (user.getPassword().equals(verify)) {
+            return "user/index";
+        } else {
+            model.addAttribute("error", "Passwords do not match");
+            return "user/add";
         }
-        return "user/add";
     }
 
 }
