@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+</head>
+<body>
+
+    <form method = 'post' action="/user">
+        <label>User Name:
+            <input type="text" name="userName">
+        </label><br /><br />
+        <label>E-mail:
+            <input type="email" name="email">
+        </label><br /><br />
+        <label>Password:
+            <input type="password" name="password">
+        </label><br /><br />
+        <label>Re-type your password:
+            <input type="password" name="verify">
+        </label><br /><br />
+        <input type = 'submit' value = 'Submit'>
+    </form>
+
+</body>
+</html>
